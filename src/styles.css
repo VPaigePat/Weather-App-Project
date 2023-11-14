@@ -1,3 +1,41 @@
 body {
     background-color: #f9f7fe;
 }
+
+.app{
+    background-color: #fff;
+    max-width: 600px;
+    margin: 45px auto;
+    border-radius: 15px;
+    box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.068);
+}
+.weatherEmoji{
+    font-size: 120px;
+    display: flex;
+    position:relative;
+    left: 60px;
+}
+.searchCity{
+    display: flex;
+    margin: 0px 20px 0px 20px;
+    justify-content:flex-end;
+    position: relative;
+    bottom: 120px;
+
+}
+.searchCityBar{
+    background-color: #f9f7fe;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+}
+.submit{
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+}
+.city{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 36px;
+    position: relative;
+    right: 160px;
+}
