@@ -1,10 +1,10 @@
 function formateDate(date){
-    let hours = date.getHourse();
+    let hours = date.getHours();
     let minutes = date.getMinutes();
-    let day = days[date.getDay()];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-    return `${day} ${hours} ${minutes}`;
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    let day = days[date.getDay()];
+    return `${day} ${hours}:${minutes}`;
 }
 
 function handleSearchSubmit(event){
@@ -27,8 +27,11 @@ function updateWeatherInfo(response) {
     let refreshWind = document.querySelector("#city-wind");
     let updateDescription = document.querySelector("#description");
     let updateTime = document.querySelector("#time");
+    let icon = document.querySelector("#weather-icon")
     let date = new Date (response.data.time * 1000);
-    refreshTemperature.innerHTML = response.data.temperature.current;
+
+    icon.innerHTML = `<img src="${response.data.condition.icon_url}" class="weatherEmoji">`;
+    refreshTemperature.innerHTML = `${response.data.temperature.current}°C`;
     refreshHumidity.innerHTML = `${response.data.temperature.humidity}%`;
     refreshWind.innerHTML = `${response.data.wind.speed} km/h`;
     updateDescription.innerHTML = response.data.condition.description;
@@ -38,3 +41,4 @@ function updateWeatherInfo(response) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
+searchCity("Montreal");
